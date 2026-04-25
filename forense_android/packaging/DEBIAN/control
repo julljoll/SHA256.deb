@@ -2,7 +2,7 @@ Package: forense-android
 Version: 1.0.0
 Architecture: amd64
 Maintainer: Laboratorio Forense <forense@ejemplo.gob.ve>
-Depends: python3 (>= 3.11), python3-pyqt6, python3-reportlab
+Depends: python3 (>= 3.10), python3-pyqt6, python3-reportlab
 Recommends: andriller, aleapp
 Section: utils
 Priority: optional
