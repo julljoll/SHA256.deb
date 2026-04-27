@@ -41,7 +41,7 @@ export default function ConsignacionForm() {
     estadoFisico: '', modoAislamiento: 'modo_avion', danosVisibles: '', bateriaEstado: '', pantallaEstado: 'apagado',
   });
 
-  const [prcc, setPrcCLocal] = useState<PRCC>({
+  const [prcc] = useState<PRCC>({
     expediente: '', prcc: '', despachoInstruye: '', organismoInstruye: '', despachoInicia: '', organismoInicia: '',
     direccion: '', fechaHora: '', formaObtencion: 'Consignación',
     fijacion: { nombre: '', ci: '' }, coleccion: { nombre: '', ci: '' }, 
