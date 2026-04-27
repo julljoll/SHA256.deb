@@ -8,49 +8,44 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60CDFF',
-          500: '#0078D4',
-          600: '#005FB8',
-          700: '#004A8F',
-          800: '#003366',
-          900: '#001A33',
+          50: '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#f59e0b', // amber-500
+          600: '#d97706', // amber-600
+          700: '#b45309', // amber-700
+          800: '#92400e', // amber-800
+          900: '#78350f', // amber-900
         },
         fluent: {
-          bg: '#202020',
-          surface: 'rgba(255, 255, 255, 0.05)',
-          surfaceHover: 'rgba(255, 255, 255, 0.08)',
-          surfaceActive: 'rgba(255, 255, 255, 0.03)',
-          border: 'rgba(255, 255, 255, 0.08)',
-          text: '#ffffff',
-          textSecondary: 'rgba(255, 255, 255, 0.7)',
-          acrylic: 'rgba(32, 32, 32, 0.7)',
+          bg: '#fcfcfd',
+          surface: '#ffffff',
+          surfaceHover: '#f8fafc',
+          surfaceActive: '#f1f5f9',
+          border: '#e2e8f0',
+          text: '#0f172a',
+          textSecondary: '#64748b',
+          acrylic: 'rgba(255, 255, 255, 0.7)',
         },
         forensic: {
-          dark: '#202020',
-          medium: 'rgba(255, 255, 255, 0.03)',
-          light: 'rgba(255, 255, 255, 0.08)',
+          dark: '#0a1122',
+          medium: '#0f172a',
+          light: '#1e293b',
         }
+      },
+      fontFamily: {
+        sans: ['Arial', 'Helvetica', 'sans-serif'],
+        serif: ['Arial', 'Helvetica', 'sans-serif'],
       },
       backdropBlur: {
         fluent: '20px',
       },
       boxShadow: {
-        fluent: '0 4px 8px 0 rgba(0,0,0,0.2), 0 1px 2px 0 rgba(0,0,0,0.1)',
-        'fluent-elevated': '0 8px 16px 0 rgba(0,0,0,0.2), 0 2px 4px 0 rgba(0,0,0,0.1)',
+        fluent: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'fluent-elevated': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       },
-      transitionProperty: {
-        'fluent': 'all',
-      },
-      transitionTimingFunction: {
-        'fluent': 'cubic-bezier(0.1, 0.9, 0.2, 1)',
-      },
-      transitionDuration: {
-        'fluent': '167ms',
-      }
     },
   },
   plugins: [],

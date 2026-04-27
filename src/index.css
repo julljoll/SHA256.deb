@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  font-family: 'Segoe UI Variable', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: dark;
-  color: #ffffff;
-  background-color: #202020;
+  color-scheme: light;
+  color: #0f172a;
+  background-color: #fcfcfd;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -19,6 +19,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #fcfcfd;
 }
 
 #root {
@@ -30,10 +31,10 @@ body {
   box-sizing: border-box;
 }
 
-/* Scrollbar personalizada Fluent */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
@@ -41,33 +42,85 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 4px solid transparent;
+  background-color: rgba(15, 23, 42, 0.2);
+  border: 3px solid transparent;
   background-clip: padding-box;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(15, 23, 42, 0.3);
 }
 
-/* Utilidades Fluent Design */
+/* Utilidades para emular los formularios de APP-PLANILLAS-FORENSES */
 .forensic-card {
-  @apply bg-fluent-surface border border-fluent-border rounded-xl shadow-fluent backdrop-blur-fluent transition-fluent duration-fluent ease-fluent hover:bg-fluent-surfaceHover;
+  @apply bg-white p-6 rounded-xl shadow-sm border border-slate-200/60 ring-1 ring-slate-900/5 transition-all duration-200 hover:shadow-md;
 }
 
 .forensic-btn {
-  @apply px-4 py-2 rounded-[4px] font-medium transition-fluent duration-fluent ease-fluent border border-transparent shadow-[0_1px_2px_rgba(0,0,0,0.14)];
+  @apply px-4 py-2 rounded-md font-semibold transition-all duration-200 shadow-sm hover:shadow-md;
 }
 
 .forensic-btn-primary {
-  @apply bg-primary-500 hover:bg-primary-600 active:bg-primary-700 text-white border-none;
+  @apply bg-amber-600 hover:bg-amber-500 active:bg-amber-700 text-white hover:-translate-y-0.5;
 }
 
 .forensic-btn-secondary {
-  @apply bg-fluent-surface hover:bg-fluent-surfaceHover active:bg-fluent-surfaceActive border-fluent-border text-white;
+  @apply bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 border border-slate-300;
 }
 
 .forensic-input {
-  @apply w-full px-3 py-2 bg-fluent-surfaceHover border border-fluent-border rounded-[4px] text-white focus:outline-none focus:bg-fluent-surface focus:border-b-[2px] focus:border-b-primary-500 transition-fluent duration-fluent ease-fluent hover:bg-fluent-surfaceActive;
+  @apply w-full text-sm bg-slate-50 border border-slate-200 rounded-md py-2.5 px-3 focus:bg-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 hover:border-slate-300 outline-none transition-all text-slate-800;
 }
+
+/* 
+  Hack to override the hardcoded dark-mode text classes from the previous Fluent theme
+  without having to rewrite 10+ TSX files.
+*/
+.page-content-area .text-white {
+  color: #0a1122 !important; /* Force title text to dark blue */
+}
+.page-content-area .text-gray-400 {
+  color: #64748b !important; /* slate-500 */
+}
+.page-content-area .text-gray-300 {
+  color: #475569 !important; /* slate-600 */
+}
+.page-content-area .text-gray-500 {
+  color: #94a3b8 !important; /* slate-400 */
+}
+
+/* Except inside specific areas that should remain light (e.g., buttons, success cards) */
+.page-content-area button .text-white, 
+.page-content-area .bg-green-900\/30 .text-white,
+.page-content-area .bg-green-900\/20 .text-white,
+.page-content-area .bg-amber-600 .text-white {
+  color: #ffffff !important;
+}
+
+.page-content-area .bg-forensic-dark {
+  background-color: #f1f5f9 !important; /* slate-100 */
+}
+
+.page-content-area .bg-primary-500 {
+  background-color: #f59e0b !important; /* amber-500 */
+}
+
+/* Card titles matching the other repo */
+.page-content-area h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  font-size: 0.875rem !important; /* text-sm */
+}
+.page-content-area h2 .lucide {
+  color: #f59e0b !important; /* text-amber-500 */
+}
+
+/* Labels matching the other repo */
+.page-content-area label {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 11px !important;
+  color: #64748b !important;
+}
+
