@@ -4,7 +4,6 @@
 
 El repositorio ha sido completamente configurado para soportar:
 - ✅ **Aplicación Desktop** (.deb para Linux, .exe Windows, .dmg macOS)
-- ✅ **PWA** (Progressive Web App) desplegable en Vercel
 - ✅ **Mismo código base** para ambas plataformas
 
 ---
@@ -15,7 +14,6 @@ El repositorio ha sido completamente configurado para soportar:
 **Cambios:**
 - Agregado `vite-plugin-pwa` (^0.17.4)
 - Agregado `workbox-window` (^7.0.0)
-- Nuevo script: `build:vercel`
 - Nuevo script: `electron:build:all`
 - Configuración electron-builder extendida para Linux, Windows, macOS
 - Keywords actualizadas con "pwa"
@@ -69,7 +67,6 @@ El repositorio ha sido completamente configurado para soportar:
 ### Raíz del Proyecto
 | Archivo | Propósito |
 |---------|-----------|
-| `vercel.json` | Configuración de despliegue en Vercel |
 | `README.md` | Documentación completa del proyecto |
 | `IMPLEMENTACION.md` | Guía rápida de implementación |
 | `.github/workflows/build.yml` | CI/CD para builds automáticos |
@@ -90,8 +87,6 @@ El repositorio ha sido completamente configurado para soportar:
 }
 ```
 
-### Vercel Config (`vercel.json`)
-- Build command: `npm run build:vercel`
 - Rewrites para SPA routing
 - Headers de seguridad
 - Content-Type para manifest
@@ -120,7 +115,6 @@ npm run electron:dev     # Electron con hot reload
 
 # Producción Web
 npm run build            # Build estándar
-npm run build:vercel     # Build optimizado Vercel
 npm run preview          # Preview local del build
 
 # Producción Desktop
@@ -168,7 +162,6 @@ forense-android-electron/
 ├── .gitignore                  # ⭐ NUEVO
 ├── index.html                  # ✏️ MODIFICADO
 ├── package.json                # ✏️ MODIFICADO
-├── vercel.json                 # ⭐ NUEVO
 ├── vite.config.ts              # ✏️ MODIFICADO
 ├── tailwind.config.js
 ├── tsconfig.json
@@ -197,7 +190,6 @@ forense-android-electron/
 - [x] Scripts de build
 
 ### Despliegue
-- [x] Vercel config
 - [x] GitHub Actions workflow
 - [x] Gitignore actualizado
 - [x] Documentación completa
@@ -208,9 +200,7 @@ forense-android-electron/
 
 1. **Generar iconos reales** reemplazar placeholders en `public/`
 2. **Probar PWA** en localhost con `npm run dev`
-3. **Desplegar en Vercel** para testing en producción
 4. **Build .deb** y probar en Ubuntu/Debian
-5. **Configurar dominio personalizado** en Vercel
 6. **Agregar analytics** si es requerido
 
 ---

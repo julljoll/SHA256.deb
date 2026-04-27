@@ -2,7 +2,6 @@
 
 Sistema completo para gestión forense de dispositivos Android, disponible como:
 - **Aplicación de escritorio** (.deb para Linux)
-- **PWA** (Progressive Web App) desplegable en Vercel
 
 ## 🛠️ Stack Tecnológico
 
@@ -34,9 +33,7 @@ npm run electron:dev
 
 ## 🏗️ Construcción
 
-### Build para web (Vercel/PWA)
 ```bash
-npm run build:vercel
 ```
 
 ### Build para Electron (.deb)
@@ -56,9 +53,7 @@ Genera paquetes para:
 - Windows (.exe)
 - macOS (.dmg)
 
-## 🌐 Despliegue en Vercel
 
-1. Conecta tu repositorio a Vercel
 2. Configura las variables de entorno si son necesarias
 3. Despliega automáticamente
 
@@ -106,7 +101,6 @@ forense-android-electron/
 ├── package.json
 ├── tailwind.config.js
 ├── tsconfig.json
-├── vercel.json        # Configuración Vercel
 └── vite.config.ts     # Configuración Vite + PWA
 ```
 
@@ -115,7 +109,6 @@ forense-android-electron/
 - Context Isolation habilitado en Electron
 - Node Integration deshabilitado
 - Preload script para APIs seguras
-- Headers de seguridad en Vercel
 
 ## 📄 Licencia
 

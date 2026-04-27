@@ -1,7 +1,6 @@
 # Arquitectura del Sistema de Gestión de Cadena de Custodia de Evidencias
 # Basado en el Manual Único de Cadena de Custodia de Evidencias (Venezuela 2017)
 # Stack: React + Vite + Electron + TailwindCSS
-# Objetivo: Aplicación Desktop (.deb) y PWA (Vercel)
 
 meta:
   nombre: "Sistema de Cadena de Custodia de Evidencias"
@@ -14,7 +13,6 @@ meta:
     desktop: "Electron + electron-builder"
     pwa: "vite-plugin-pwa + Workbox"
     despliegue:
-      web: "Vercel (PWA)"
       desktop: "GitHub Actions (.deb, .exe, .dmg)"
 
 # =============================================================================
@@ -1077,7 +1075,6 @@ integraciones:
 # =============================================================================
 build_config:
   web_pwa:
-    comando: "npm run build:vercel"
     output_dir: "dist"
     optimizaciones:
       - "code_splitting"
@@ -1128,7 +1125,6 @@ build_config:
         steps: ["install", "lint", "test", "build"]
       - name: "build-electron"
         steps: ["build-linux", "build-windows", "build-macos"]
-      - name: "deploy-vercel"
         steps: ["build-web", "deploy"]
       - name: "release"
         steps: ["create-release", "upload-artifacts"]

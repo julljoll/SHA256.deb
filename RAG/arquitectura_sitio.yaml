@@ -692,7 +692,6 @@ tech_stack:
     alternative: "Contentful"
   
   deployment:
-    hosting: "AWS / Vercel / Netlify"
     ci_cd: "GitHub Actions"
     containerization: "Docker"
 

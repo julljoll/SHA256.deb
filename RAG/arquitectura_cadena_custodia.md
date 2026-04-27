@@ -27,7 +27,6 @@ PWA:
   • vite-plugin-pwa + Workbox
 
 Despliegue:
-  • Web: Vercel (PWA)
   • Desktop: GitHub Actions (.deb, .exe, .dmg)
 ```
 
