@@ -26,23 +26,22 @@ export interface Dispositivo {
 }
 
 export interface PRCC {
-  id?: number;
-  casoId?: number;
-  numeroPRCC: string;
-  tipo: 'principal' | 'derivada';
-  expedienteNumero: string;
-  funcionarioColector: string;
-  cargo: string;
-  organo: string;
-  tipoEmbalaje: 'bolsa' | 'caja' | 'sobre' | 'otro';
-  numeroPrecinto: string;
-  hashSHA256: string;
-  hashMD5: string;
-  estadoEmbalaje: 'buenas' | 'deterioradas' | 'rotas';
-  nombreFirmante: string;
-  tipoObjeto: string;
-  color: string;
-  descripcionEvidencia: string;
+  expediente: string;
+  prcc: string;
+  despachoInstruye: string;
+  organismoInstruye: string;
+  despachoInicia: string;
+  organismoInicia: string;
+  direccion: string;
+  fechaHora: string;
+  formaObtencion: string;
+  fijacion: { nombre: string; ci: string };
+  coleccion: { nombre: string; ci: string };
+  descripcion: string;
+  motivoTransferencia: string;
+  entrega: { nombre: string; organismo: string; despacho: string; ci: string; };
+  recibe: { nombre: string; organismo: string; despacho: string; ci: string; };
+  observaciones: string;
 }
 
 export interface Adquisicion {

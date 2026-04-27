@@ -88,8 +88,8 @@ export default function InformePage() {
             <div>
               <h4 className="text-sm font-medium text-gray-400 mb-2">Cadena de Custodia</h4>
               <div className="space-y-1 text-sm">
-                <p><span className="text-gray-500">PRCC:</span> <span className="text-white">{prcc.numeroPRCC}</span></p>
-                <p><span className="text-gray-500">Funcionario:</span> <span className="text-white">{prcc.funcionarioColector}</span></p>
+                <p><span className="text-gray-500">PRCC:</span> <span className="text-white">{prcc.prcc}</span></p>
+                <p><span className="text-gray-500">Funcionario:</span> <span className="text-white">{prcc.fijacion.nombre}</span></p>
               </div>
             </div>
           )}

@@ -124,3 +124,26 @@ body {
   color: #64748b !important;
 }
 
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+  .forensic-card {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  input, select, textarea {
+    border: none !important;
+    border-bottom: 1px solid black !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: black !important;
+    padding-left: 0 !important;
+  }
+}
+

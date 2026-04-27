@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForenseStore, type Caso, type Dispositivo, type PRCC } from '../store/forenseStore';
-import { FileText, Camera, Save } from 'lucide-react';
+import { FileText, Camera } from 'lucide-react';
 
 export default function ConsignacionPage() {
   const { setCaso, setDispositivo, setPRCC } = useForenseStore();
@@ -31,25 +31,14 @@ export default function ConsignacionPage() {
 
   // Estado PRCC
   const [prcc, setPrcCLocal] = useState<PRCC>({
-    numeroPRCC: '',
-    tipo: 'principal',
-    expedienteNumero: '',
-    funcionarioColector: '',
-    cargo: '',
-    organo: '',
-    tipoEmbalaje: 'bolsa',
-    numeroPrecinto: '',
-    hashSHA256: '',
-    hashMD5: '',
-    estadoEmbalaje: 'buenas',
-    nombreFirmante: '',
-    tipoObjeto: 'Dispositivo Móvil',
-    color: '',
-    descripcionEvidencia: '',
+    expediente: '', prcc: '', despachoInstruye: '', organismoInstruye: '', despachoInicia: '', organismoInicia: '',
+    direccion: '', fechaHora: '', formaObtencion: '',
+    fijacion: { nombre: '', ci: '' }, coleccion: { nombre: '', ci: '' }, 
+    descripcion: '', motivoTransferencia: '',
+    entrega: { nombre: '', organismo: '', despacho: '', ci: '' }, recibe: { nombre: '', organismo: '', despacho: '', ci: '' }, observaciones: ''
   });
 
   const [step, setStep] = useState(1);
-  const [saved, setSaved] = useState(false);
 
   const handleGuardarConsignacion = () => {
     // Guardar en el store global
@@ -59,7 +48,6 @@ export default function ConsignacionPage() {
     
     // Aquí se podría guardar en base de datos
     console.log('Datos guardados:', { caso, dispositivo, prcc });
-    setSaved(true);
   };
 
   return (
@@ -136,8 +124,8 @@ export default function ConsignacionPage() {
               </label>
               <input
                 type="text"
-                value={prcc.expedienteNumero}
-                onChange={(e) => setPrcCLocal({ ...prcc, expedienteNumero: e.target.value })}
+                value={prcc.expediente}
+                onChange={(e) => setPrcCLocal({ ...prcc, expediente: e.target.value })}
                 className="forensic-input"
                 placeholder="Ej: EXP-2024-567890"
               />
@@ -245,12 +233,12 @@ export default function ConsignacionPage() {
             
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
-                Color
+                Descripción Adicional (Color, Detalle)
               </label>
               <input
                 type="text"
-                value={prcc.color}
-                onChange={(e) => setPrcCLocal({ ...prcc, color: e.target.value })}
+                value={prcc.descripcion}
+                onChange={(e) => setPrcCLocal({ ...prcc, descripcion: e.target.value })}
                 className="forensic-input"
               />
             </div>
@@ -315,8 +303,8 @@ export default function ConsignacionPage() {
                 Descripción de la Evidencia
               </label>
               <textarea
-                value={prcc.descripcionEvidencia}
-                onChange={(e) => setPrcCLocal({ ...prcc, descripcionEvidencia: e.target.value })}
+                value={prcc.observaciones}
+                onChange={(e) => setPrcCLocal({ ...prcc, observaciones: e.target.value })}
                 className="forensic-input"
                 rows={3}
                 placeholder="Descripción detallada del dispositivo"
@@ -324,20 +312,7 @@ export default function ConsignacionPage() {
             </div>
           </div>
 
-          {saved && (
-            <div className="mt-4 p-4 bg-green-900/30 border border-green-700 rounded-lg flex justify-between items-center">
-              <p className="text-green-400">✓ Consignación guardada exitosamente</p>
-              <button 
-                onClick={() => window.print()}
-                className="forensic-btn forensic-btn-primary flex items-center gap-2"
-              >
-                <FileText className="w-4 h-4" />
-                Imprimir Planilla de Consignación
-              </button>
-            </div>
-          )}
-
-          <div className="mt-6 flex justify-between">
+          <div className="mt-6 flex justify-between print:hidden">
             <button
               onClick={() => setStep(1)}
               className="forensic-btn forensic-btn-secondary"
@@ -345,12 +320,15 @@ export default function ConsignacionPage() {
               ← Atrás
             </button>
             <button
-              onClick={handleGuardarConsignacion}
+              onClick={() => {
+                handleGuardarConsignacion();
+                setTimeout(() => window.print(), 100);
+              }}
               disabled={!dispositivo.marca || !dispositivo.modelo || !dispositivo.imei}
               className="forensic-btn forensic-btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <Save className="w-4 h-4 inline mr-2" />
-              Guardar y Finalizar
+              <FileText className="w-4 h-4 inline mr-2" />
+              Generar e Imprimir Planilla
             </button>
           </div>
         </div>

@@ -23,7 +23,7 @@ export default function Layout() {
   return (
     <div className="flex h-screen bg-[#fcfcfd] font-sans text-slate-900 overflow-hidden relative">
       {/* Sidebar */}
-      <div className="hidden md:flex w-72 bg-[#0a1122] flex-col shrink-0 relative z-20 shadow-2xl">
+      <div className="hidden md:flex w-72 bg-[#0a1122] flex-col shrink-0 relative z-20 shadow-2xl print:hidden">
         <div className="p-8 pb-4">
           <div className="flex items-center gap-3 mb-2">
             <img src="./favicon.svg" alt="SHA256.US Logo" className="w-9 h-9" />
